@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EventEase — College Event Management System Project Report</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 15mm 20mm 15mm;
+      @bottom-right {
+        content: counter(page);
+      }
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    h1.chapter-title {
+      font-size: 20pt;
+      color: #0f172a;
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 6px;
+      margin-top: 28pt;
+      margin-bottom: 14pt;
+      page-break-before: always;
+    }
+    /* First chapter (Title cover) shouldn't break before */
+    div[align="center"] + hr + h1.chapter-title,
+    div[align="center"] h1 {
+      page-break-before: avoid !important;
+    }
+    div[align="center"] {
+      padding-top: 30pt;
+      padding-bottom: 20pt;
+      text-align: center;
+      page-break-after: always;
+    }
+    div[align="center"] img {
+      margin-bottom: 15pt;
+    }
+    div[align="center"] h1 {
+      font-size: 22pt;
+      color: #00684a; /* GITAM Green */
+      margin: 8pt 0 4pt 0;
+    }
+    div[align="center"] h2 {
+      font-size: 18pt;
+      color: #2563eb;
+      margin: 10pt 0 4pt 0;
+    }
+    div[align="center"] h3 {
+      font-size: 13pt;
+      color: #4b5563;
+      margin: 0 0 16pt 0;
+      font-weight: 500;
+    }
+    h2.section-title {
+      font-size: 14pt;
+      color: #1e3a8a;
+      margin-top: 18pt;
+      margin-bottom: 8pt;
+    }
+    h3.subsection-title {
+      font-size: 12pt;
+      color: #334155;
+      margin-top: 12pt;
+      margin-bottom: 6pt;
+    }
+    p {
+      margin: 0 0 10pt 0;
+      text-align: justify;
+    }
+    ul, ol {
+      margin: 0 0 10pt 0;
+      padding-left: 24pt;
+    }
+    li {
+      margin-bottom: 4pt;
+    }
+    table.report-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12pt 0 16pt 0;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    table.report-table th, table.report-table td {
+      border: 1px solid #cbd5e1;
+      padding: 6pt 8pt;
+      text-align: left;
+    }
+    table.report-table th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    table.report-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    pre.code-block {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 10pt 12pt;
+      border-radius: 6pt;
+      font-family: "Cascadia Code", Consolas, "Courier New", monospace;
+      font-size: 9pt;
+      line-height: 1.45;
+      overflow-x: auto;
+      margin: 10pt 0 14pt 0;
+      page-break-inside: avoid;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    code {
+      font-family: "Cascadia Code", Consolas, "Courier New", monospace;
+      font-size: 9.5pt;
+      background: #f1f5f9;
+      color: #dc2626;
+      padding: 1.5pt 4pt;
+      border-radius: 3pt;
+    }
+    pre.code-block code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+    .image-wrapper {
+      text-align: center;
+      margin: 14pt 0 18pt 0;
+      page-break-inside: avoid;
+    }
+    .image-wrapper img {
+      max-width: 95%;
+      height: auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 6pt;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .image-caption {
+      font-size: 9pt;
+      color: #64748b;
+      font-style: italic;
+      margin-top: 5pt;
+    }
+    hr.report-divider {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 18pt 0;
+    }
+    blockquote {
+      border-left: 4px solid #3b82f6;
+      background: #eff6ff;
+      margin: 10pt 0;
+      padding: 8pt 12pt;
+      color: #1e40af;
+      border-radius: 0 4pt 4pt 0;
+    }
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div align="center">
+<p><img src="file:///C:/Users/user/Desktop/EventEase/docs/screenshots/gitam_logo.png" alt="GITAM Deemed to be University" width="160" /></p>
+<h1 class="chapter-title">GITAM SCHOOL OF COMPUTER SCIENCE AND ENGINEERING</h1>
+<h3 class="subsection-title">Visakhapatnam</h3>
+<hr class="report-divider" />
+<h1 class="chapter-title">PROJECT REPORT</h1>
+<h2 class="section-title">EVENTEASE</h2>
+<h3 class="subsection-title">College Event Management System</h3>
+<p><strong>Submitted by:</strong></p>
+<p><strong>Shaik Mahammed Aakhil – 2024049393</strong></p>
+<p><strong>Department of Computer Science and Engineering</strong></p>
+<p><strong>Branch:</strong> Computer Science and Engineering (CSE)</p>
+<p><strong>Academic Year:</strong> 2025–2026</p>
+</div>
+<hr class="report-divider" />
+<h2 class="section-title">TABLE OF CONTENTS</h2>
+<table class="report-table"><thead><tr><th>Chapter</th><th>Title</th><th>Page No.</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>Problem Statement and Requirement Analysis</td><td>3</td></tr><tr><td><strong>2</strong></td><td>ReactJS Frontend Development</td><td>6</td></tr><tr><td><strong>3</strong></td><td>NodeJS and ExpressJS Backend Development</td><td>17</td></tr><tr><td><strong>4</strong></td><td>MongoDB Integration and CRUD Operations</td><td>28</td></tr><tr><td><strong>5</strong></td><td>Git and GitHub Implementation</td><td>36</td></tr><tr><td><strong>6</strong></td><td>Cloud Deployment</td><td>41</td></tr><tr><td><strong>7</strong></td><td>Application Testing</td><td>47</td></tr><tr><td><strong>8</strong></td><td>Conclusion</td><td>54</td></tr></tbody></table>
+<hr class="report-divider" />
+<h1 class="chapter-title">Chapter 1: Problem Statement and Requirement Analysis</h1>
+<h2 class="section-title">1.1 Problem Statement</h2>
+<p>Managing college events, technical symposiums, cultural fests, workshops, and seminars is an integral part of campus life in educational institutions. Traditionally, event announcements, student registrations, participant roster tracking, and seat allocation are handled manually using spreadsheets, paper forms, or fragmented instant-messaging groups.</p>
+<p>This traditional manual process poses significant challenges:</p>
+<ol>
+<li><strong>Capacity Overflows and Unchecked Bookings:</strong> Organizers frequently face over-capacity registrations due to lack of real-time seat counters, leading to venue overcrowding or sudden last-minute rejections.</li>
+<li><strong>Duplicate Registrations:</strong> Students often submit multiple forms, leading to skewed headcount estimates and inefficient resource allocation.</li>
+<li><strong>Scattered Information:</strong> Details regarding venues, timing schedules, department organizers, and category classifications are difficult for students to browse and search centrally.</li>
+<li><strong>Administrative Overhead:</strong> Event coordinators spend hours compiling participant rosters, tracking cancellations, and manually cross-verifying student roll numbers and department credentials.</li>
+</ol>
+<p><strong>EventEase — College Event Management System</strong> is a full-stack web application developed to centralize and automate event administration across campus. It provides a real-time dashboard, categorized event browsing, instant seat capacity tracking, student registration with duplicate-prevention logic, and event-specific participant rosters.</p>
+<h2 class="section-title">1.2 Requirement Analysis</h2>
+<h3 class="subsection-title">Functional Requirements</h3>
+<ul>
+<li><strong>Dashboard Overview:</strong> Display aggregate metric cards (Total Events, Upcoming Events, Registered Students, Active Registrations), an upcoming events schedule, and real-time recent registrations.</li>
+<li><strong>Event Management (CRUD):</strong> Enable organizers to create, view, edit, and delete events with fields for title, category, description, venue, date, time slots, student capacity, and organizing department.</li>
+<li><strong>Search and Category Filtering:</strong> Enable students to search events by keyword (title, venue, organizer) and filter by categories (Technical, Cultural, Sports, Workshop, Seminar, Academic, Other).</li>
+<li><strong>Student Profile Management:</strong> Maintain student records with validated fields including Name, unique Roll Number, Department/Branch, Academic Year, unique Email, and Contact Phone.</li>
+<li><strong>Seat Capacity Enforcement:</strong> Automatically track enrolled students versus total capacity, calculate seats remaining, display real-time status badges (<em>Available</em> or <em>Capacity Full</em>), and block new enrollments when an event reaches maximum capacity.</li>
+<li><strong>Duplicate Registration Prevention:</strong> Prevent students from registering more than once for the same event using a composite unique constraint at both controller and database levels.</li>
+<li><strong>Participant Roster Tracking:</strong> Allow organizers to inspect event-specific participant rosters, filter by status (<em>Registered</em> or <em>Cancelled</em>), toggle student attendance status, and cancel or delete registrations to release seats.</li>
+<li><strong>Centralized Error Handling & Health Monitoring:</strong> Provide clear API health verification endpoints (<code>/api/health</code>) and structured JSON error responses with standard HTTP status codes.</li>
+</ul>
+<h3 class="subsection-title">Non-Functional Requirements</h3>
+<ul>
+<li><strong>Usability:</strong> Clean, responsive, and intuitive user interface designed for college students and faculty coordinators.</li>
+<li><strong>Performance:</strong> Fast response times using lightweight REST APIs, Mongoose indexing, and optimized React component re-rendering.</li>
+<li><strong>Data Integrity:</strong> Strict schema validation rules, unique roll numbers/emails, and cascading deletes to prevent orphaned records when an event is deleted.</li>
+<li><strong>Maintainability:</strong> Clear separation of concerns following MVC architecture (Models, Views/React Pages, Controllers, Routes, Middleware).</li>
+<li><strong>Cross-Platform Compatibility:</strong> Responsive layout supporting desktops, laptops, tablets, and mobile smartphones.</li>
+<li><strong>Reliability:</strong> Graceful error handling for database connection drops with immediate <code>503 Service Unavailable</code> notifications rather than application crashes.</li>
+</ul>
+<h2 class="section-title">1.3 Technology Requirements</h2>
+<table class="report-table"><thead><tr><th>Component</th><th>Technology / Tool</th><th>Version / Details</th></tr></thead><tbody><tr><td><strong>Frontend Framework</strong></td><td>React.js</td><td>v18.3.1 (Vite Build Tool v6.1)</td></tr><tr><td><strong>Client Routing</strong></td><td>React Router DOM</td><td>v6.28.0</td></tr><tr><td><strong>HTTP Client</strong></td><td>Axios</td><td>v1.7.9 (Centralized interceptors)</td></tr><tr><td><strong>UI Icons & Styling</strong></td><td>Lucide React & Modern Responsive CSS</td><td>CSS3 Variables, Flexbox, CSS Grid</td></tr><tr><td><strong>Backend Runtime</strong></td><td>Node.js</td><td>v18+ / v20+ / v24+</td></tr><tr><td><strong>Backend Framework</strong></td><td>Express.js</td><td>v5.3.0</td></tr><tr><td><strong>Database</strong></td><td>MongoDB & Mongoose ODM</td><td>Mongoose v9.11.2 (Local MongoDB 9.0 / Atlas)</td></tr><tr><td><strong>API Testing</strong></td><td>Postman</td><td><code>EventEase.postman_collection.json</code></td></tr><tr><td><strong>Version Control</strong></td><td>Git & GitHub</td><td>Distributed version control</td></tr><tr><td><strong>Deployment Target</strong></td><td>Render (Backend) / GitHub Pages or Vercel (Frontend)</td><td>Cloud-hosted PaaS</td></tr></tbody></table>
+<h2 class="section-title">1.4 Expected Outcome</h2>
+<p>The completed EventEase system provides an end-to-end, paperless campus event management platform. Administrators can publish and manage events effortlessly, students can enroll in campus workshops with instantaneous capacity validation, and faculty coordinators have instant access to real-time participant rosters and attendance statuses.</p>
+<hr class="report-divider" />
+<h1 class="chapter-title">Chapter 2: ReactJS Frontend Development</h1>
+<h2 class="section-title">2.1 Introduction to ReactJS</h2>
+<p>React.js is a component-based open-source JavaScript library developed by Meta for building dynamic and interactive single-page user interfaces (SPAs). React utilizes a Virtual DOM (Document Object Model) to efficiently calculate interface diffs and re-render only the modified UI components, resulting in exceptional application performance and responsiveness.</p>
+<p>In <strong>EventEase</strong>, React.js is utilized alongside <strong>Vite</strong> and <strong>React Router v6</strong> to provide a seamless five-page navigation experience without full-page browser refreshes.</p>
+<h2 class="section-title">2.2 Objectives of Frontend Development</h2>
+<ul>
+<li>To build a clean, modern, and accessible user interface tailored for college campus usage.</li>
+<li>To implement declarative client-side routing across the five core application views.</li>
+<li>To present real-time summary statistics, upcoming event spotlights, and recent registrations on the Dashboard.</li>
+<li>To provide intuitive search and category filtering for events.</li>
+<li>To build robust forms with client-side validation for event creation and student registration.</li>
+<li>To display event rosters with one-click registration cancellation, re-activation, and record deletion.</li>
+<li>To implement responsive styling that adapts seamlessly to desktop, tablet, and mobile screens.</li>
+</ul>
+<h2 class="section-title">2.3 Technologies Used in Frontend</h2>
+<table class="report-table"><thead><tr><th>Technology</th><th>Purpose</th></tr></thead><tbody><tr><td><strong>React.js (v18.3)</strong></td><td>Core UI library for component composition and state handling.</td></tr><tr><td><strong>React Router v6</strong></td><td>Declarative client-side routing across pages (<code>/</code>, <code>/events</code>, <code>/register</code>, etc.).</td></tr><tr><td><strong>Axios</strong></td><td>Promised-based HTTP client with request/response interceptors for REST communication.</td></tr><tr><td><strong>Lucide React</strong></td><td>Modern, lightweight SVG icon package for clean visual indicators.</td></tr><tr><td><strong>CSS3 Design System</strong></td><td>Custom styling with CSS custom properties (variables), Grid, and Flexbox.</td></tr><tr><td><strong>Vite</strong></td><td>Fast Next-Generation frontend build tool and local development server.</td></tr></tbody></table>
+<h2 class="section-title">2.4 Frontend Project Structure</h2>
+<p>The frontend application maintains a clean, modular structure with minimal file clutter:</p>
+<pre class="code-block"><code class="lang-text">frontend/
+├── src/
+│   ├── components/          # Reusable UI building blocks
+│   │   ├── EmptyState.jsx   # Zero-data display with contextual action buttons
+│   │   ├── EventCard.jsx    # Card presentation with capacity progress indicator
+│   │   ├── FormField.jsx    # Reusable validated inputs, textareas, and select menus
+│   │   ├── LoadingSpinner.jsx # Smooth async loading spinner
+│   │   ├── Modal.jsx        # Accessible popup dialog for confirmations
+│   │   ├── Navbar.jsx       # Responsive top navigation with mobile drawer
+│   │   ├── Notification.jsx # Auto-dismissing success/error toast alerts
+│   │   └── StatCard.jsx     # Dashboard metric highlight card
+│   ├── pages/               # Five core college guidelines pages
+│   │   ├── Dashboard.jsx    # 1. Main statistics, upcoming events, recent registrations
+│   │   ├── EventsList.jsx   # 2. Event catalogue with search, category filter, and sorting
+│   │   ├── EventForm.jsx    # 3. Create &amp; Edit event form with validation
+│   │   ├── StudentRegistration.jsx # 4. Student enrollment form with capacity guard
+│   │   └── Participants.jsx # 5. Event participant roster &amp; status management
+│   ├── services/
+│   │   └── api.js           # Centralized Axios API client configuration
+│   ├── App.jsx              # Main router definition and app shell layout
+│   ├── main.jsx             # React DOM root entry point
+│   └── styles.css           # Global stylesheet and responsive media queries
+├── .env                     # VITE_API_URL=http://localhost:5000/api
+├── index.html               # Single page application HTML template
+├── package.json             # Frontend dependencies and scripts
+└── vite.config.js           # Vite development server configuration</code></pre>
+<h2 class="section-title">2.5 Design of the User Interface</h2>
+<p>The EventEase frontend comprises five core functional views:</p>
+<h3 class="subsection-title">2.5.1 Top Navigation Bar (<code>Navbar.jsx</code>)</h3>
+<p>Features the application brand logo, direct navigation links to the four main sections (Dashboard, Events, Register, Participants), an elevated "Create Event" quick-action button, and a responsive hamburger drawer for mobile viewports.</p>
+<h3 class="subsection-title">2.5.2 Dashboard Page (<code>Dashboard.jsx</code>)</h3>
+<p>The central landing view featuring:</p>
+<ul>
+<li><strong>Four Key Metric Cards:</strong> Total Events, Upcoming Events, Registered Students, and Total Registrations.</li>
+<li><strong>Quick Action Pills:</strong> One-click shortcuts to create events, register students, or browse listings.</li>
+<li><strong>Two-Column Split Layout:</strong> An "Upcoming Events" timeline on the left and a "Recent Registrations" tabular feed on the right.</li>
+<li><strong>Departmental Category Breakdown:</strong> Visual pill badges indicating event distribution across technical, cultural, and sports categories.</li>
+</ul>
+<h3 class="subsection-title">2.5.3 Events List Page (<code>EventsList.jsx</code>)</h3>
+<p>An interactive event catalogue featuring:</p>
+<ul>
+<li>A search input filtering simultaneously by title, venue, organizer, and description.</li>
+<li>A category dropdown selector (<em>All, Technical, Cultural, Sports, Workshop, Seminar, Academic, Other</em>).</li>
+<li>Sorting controls (<em>Upcoming First, Recently Created, Alphabetical</em>).</li>
+<li>Event cards displaying date badges, category tags, location metadata, capacity progress bars, details modal, and Edit/Delete controls.</li>
+</ul>
+<h3 class="subsection-title">2.5.4 Create / Edit Event Page (<code>EventForm.jsx</code>)</h3>
+<p>A unified, validated form supporting both event creation (<code>/events/create</code>) and modification (<code>/events/edit/:id</code>). Form fields include Event Title, Description, Category, Venue, Date, Start Time, End Time, Seat Capacity, and Organizing Department.</p>
+<h3 class="subsection-title">2.5.5 Student Registration Page (<code>StudentRegistration.jsx</code>)</h3>
+<p>A streamlined enrollment portal featuring:</p>
+<ul>
+<li>Event selector displaying real-time seats remaining.</li>
+<li>Visual summary banner showing category, timings, venue, and full-capacity alert.</li>
+<li>Two enrollment modes: selecting an existing registered student or enrolling a new student profile on the fly.</li>
+<li>Form validation preventing submissions when seats are exhausted or fields are missing.</li>
+</ul>
+<h3 class="subsection-title">2.5.6 Event Participants Page (<code>Participants.jsx</code>)</h3>
+<p>A dedicated participant roster view enabling organizers to:</p>
+<ul>
+<li>Select an event from a dropdown list to view all registered students.</li>
+<li>Search participants by roll number, name, branch, or email.</li>
+<li>Filter attendees by status (<em>All, Registered, Cancelled</em>).</li>
+<li>Toggle student status between <em>Registered</em> and <em>Cancelled</em> with one click.</li>
+<li>Permanently remove registrations to release seats back to the event pool.</li>
+</ul>
+<h2 class="section-title">2.6 React Components and State Management</h2>
+<p>EventEase uses standard React functional components with React Hooks (<code>useState</code>, <code>useEffect</code>, <code>useParams</code>, <code>useSearchParams</code>).</p>
+<h3 class="subsection-title">2.6.1 React Router Navigation Configuration (<code>src/App.jsx</code>)</h3>
+<p>The application defines client-side routes within <code>App.jsx</code>, mapping URL paths to the five core view components inside a persistent navigation shell:</p>
+<pre class="code-block"><code class="lang-jsx">import React from &#039;react&#039;;
+import { Routes, Route, Navigate } from &#039;react-router-dom&#039;;
+import Navbar from &#039;./components/Navbar&#039;;
+import Dashboard from &#039;./pages/Dashboard&#039;;
+import EventsList from &#039;./pages/EventsList&#039;;
+import EventForm from &#039;./pages/EventForm&#039;;
+import StudentRegistration from &#039;./pages/StudentRegistration&#039;;
+import Participants from &#039;./pages/Participants&#039;;
+
+function App() {
+  return (
+    &lt;div className=&quot;app-layout&quot;&gt;
+      {/* Persistent Navigation Bar */}
+      &lt;Navbar /&gt;
+
+      {/* Declarative View Routing */}
+      &lt;main className=&quot;main-content-area&quot;&gt;
+        &lt;Routes&gt;
+          &lt;Route path=&quot;/&quot; element={&lt;Dashboard /&gt;} /&gt;
+          &lt;Route path=&quot;/events&quot; element={&lt;EventsList /&gt;} /&gt;
+          &lt;Route path=&quot;/events/create&quot; element={&lt;EventForm /&gt;} /&gt;
+          &lt;Route path=&quot;/events/edit/:id&quot; element={&lt;EventForm /&gt;} /&gt;
+          &lt;Route path=&quot;/register&quot; element={&lt;StudentRegistration /&gt;} /&gt;
+          &lt;Route path=&quot;/participants&quot; element={&lt;Participants /&gt;} /&gt;
+          &lt;Route path=&quot;*&quot; element={&lt;Navigate to=&quot;/&quot; replace /&gt;} /&gt;
+        &lt;/Routes&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;</code></pre>
+<h3 class="subsection-title">2.6.2 Reusable Event Card Component (<code>src/components/EventCard.jsx</code>)</h3>
+<p><code>EventCard.jsx</code> encapsulates event details, category badge indicators, and dynamic seat capacity progress calculation:</p>
+<pre class="code-block"><code class="lang-jsx">const EventCard = ({ event, onViewDetails, onEdit, onDelete }) =&gt; {
+  const { title, category, venue, eventDate, capacity, registeredCount = 0, seatsLeft = 0, isFull } = event;
+
+  const formattedDate = new Date(eventDate).toLocaleDateString(&#039;en-US&#039;, {
+    weekday: &#039;short&#039;, month: &#039;short&#039;, day: &#039;numeric&#039;, year: &#039;numeric&#039;
+  });
+
+  // Calculate percentage of occupied seats
+  const percentFilled = Math.min(100, Math.round((registeredCount / capacity) * 100));
+
+  return (
+    &lt;div className=&quot;event-card&quot;&gt;
+      &lt;div className=&quot;event-card-header&quot;&gt;
+        &lt;span className={`badge badge-${category.toLowerCase()}`}&gt;{category}&lt;/span&gt;
+        {isFull ? (
+          &lt;span className=&quot;badge badge-danger&quot;&gt;Capacity Full&lt;/span&gt;
+        ) : (
+          &lt;span className=&quot;badge badge-success&quot;&gt;{seatsLeft} spots left&lt;/span&gt;
+        )}
+      &lt;/div&gt;
+      &lt;div className=&quot;event-card-body&quot;&gt;
+        &lt;h3 className=&quot;event-title&quot;&gt;{title}&lt;/h3&gt;
+        &lt;p className=&quot;event-meta&quot;&gt;📍 {venue} • 🗓️ {formattedDate}&lt;/p&gt;
+        &lt;div className=&quot;capacity-bar-container&quot;&gt;
+          &lt;div className=&quot;capacity-bar&quot; style={{ width: `${percentFilled}%` }} /&gt;
+        &lt;/div&gt;
+        &lt;span className=&quot;capacity-text&quot;&gt;{registeredCount} / {capacity} registered&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+<h3 class="subsection-title">2.6.3 Local Component State Architecture</h3>
+<p>Component states track asynchronous network requests, form inputs, modal visibility, and client-side validation errors:</p>
+<pre class="code-block"><code class="lang-jsx">// Example from StudentRegistration.jsx
+const [events, setEvents] = useState([]);
+const [students, setStudents] = useState([]);
+const [selectedEventId, setSelectedEventId] = useState(&#039;&#039;);
+const [studentMode, setStudentMode] = useState(&#039;existing&#039;); // &#039;existing&#039; or &#039;new&#039;
+const [loading, setLoading] = useState(true);
+const [submitting, setSubmitting] = useState(false);
+const [validationErrors, setValidationErrors] = useState({});</code></pre>
+<h2 class="section-title">2.7 Loading Data with <code>useEffect</code> and Centralized API Service</h2>
+<p>Data fetching is executed on component mount via <code>useEffect</code> hooks calling methods from <code>api.js</code>:</p>
+<pre class="code-block"><code class="lang-javascript">// Centralized Axios API configuration (src/services/api.js)
+import axios from &#039;axios&#039;;
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || &#039;http://localhost:5000/api&#039;;
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: { &#039;Content-Type&#039;: &#039;application/json&#039; },
+  timeout: 10000
+});
+
+// Response interceptor to format clean error messages
+api.interceptors.response.use(
+  (response) =&gt; response,
+  (error) =&gt; {
+    let message = &#039;An unexpected error occurred. Please verify backend is running.&#039;;
+    if (error.response &amp;&amp; error.response.data &amp;&amp; error.response.data.message) {
+      message = error.response.data.message;
+    } else if (error.message) {
+      message = error.message;
+    }
+    return Promise.reject(new Error(message));
+  }
+);</code></pre>
+<pre class="code-block"><code class="lang-jsx">// Initial data loading inside Dashboard.jsx
+useEffect(() =&gt; {
+  const fetchDashboardStats = async () =&gt; {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await dashboardService.getStats();
+      if (res.success) {
+        setStats(res.data);
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchDashboardStats();
+}, []);</code></pre>
+<h2 class="section-title">2.8 Student Registration Submission Flow</h2>
+<p>When a user submits an event registration, the frontend validates inputs, sends a <code>POST</code> request to <code>/api/registrations</code>, and updates the UI state:</p>
+<pre class="code-block"><code class="lang-javascript">// Registration submission handler in StudentRegistration.jsx
+const handleSubmit = async (e) =&gt; {
+  e.preventDefault();
+  if (selectedEvent?.isFull) {
+    setApiError(&#039;This event is already at maximum capacity.&#039;);
+    return;
+  }
+
+  try {
+    setSubmitting(true);
+    let targetStudentId = selectedStudentId;
+
+    if (studentMode === &#039;new&#039;) {
+      if (!validateNewStudent()) return;
+      const studentRes = await studentService.create({
+        ...newStudent,
+        rollNo: newStudent.rollNo.toUpperCase().trim(),
+        email: newStudent.email.toLowerCase().trim()
+      });
+      targetStudentId = studentRes.data._id;
+    }
+
+    const regRes = await registrationService.create({
+      eventId: selectedEventId,
+      studentId: targetStudentId,
+      status: &#039;Registered&#039;
+    });
+
+    if (regRes.success) {
+      setSuccessData({ registration: regRes.data, message: regRes.message });
+      const updatedEvents = await eventService.getAll();
+      if (updatedEvents.success) setEvents(updatedEvents.data);
+    }
+  } catch (err) {
+    setApiError(err.message || &#039;Failed to register student&#039;);
+  } finally {
+    setSubmitting(false);
+  }
+};</code></pre>
+<h2 class="section-title">2.9 Form Validation and Feedback Mechanisms</h2>
+<p>The frontend enforces strict field verification before dispatching network calls:</p>
+<ul>
+<li>Non-empty constraints for required fields with clear red indicator labels.</li>
+<li>Email format validation using regular expressions (<code>/^\S+@\S+\.\S+$/</code>).</li>
+<li>10-digit mobile number format validation (<code>/^\d{10}$/</code>).</li>
+<li>Capacity lower bound enforcement (<code>capacity &gt;= 1</code>).</li>
+<li>Dynamic banner alerts informing users when an event is full or when a duplicate entry is attempted.</li>
+</ul>
+<h2 class="section-title">2.10 Responsive CSS Styling</h2>
+<p>The visual design in <code>styles.css</code> uses modern CSS3 variables and responsive media breakpoints:</p>
+<ul>
+<li><strong><code>@media (max-width: 1024px)</code>:</strong> Two-column grid layouts for statistic metric cards and participant summaries.</li>
+<li><strong><code>@media (max-width: 768px)</code>:</strong> Desktop navigation collapses into an animated mobile drawer; event grids and form rows transition into a stacked single-column flow.</li>
+<li><strong><code>@media (max-width: 480px)</code>:</strong> Full-width action buttons and card layouts optimized for single-hand mobile interactions.</li>
+</ul>
+<hr class="report-divider" />
+<h1 class="chapter-title">Chapter 3: NodeJS and ExpressJS Backend Development</h1>
+<h2 class="section-title">3.1 Introduction to NodeJS</h2>
+<p>Node.js is a cross-platform, open-source JavaScript runtime environment built on Google Chrome's V8 engine. Node.js uses an asynchronous, non-blocking, event-driven I/O model, allowing it to efficiently handle thousands of concurrent client requests with minimal system overhead. In EventEase, Node.js powers the server-side REST API application.</p>
+<h2 class="section-title">3.2 Introduction to ExpressJS</h2>
+<p>Express.js is a lightweight, flexible web application framework for Node.js. It simplifies HTTP request routing, middleware composition, request parsing, and response formatting, making it the industry standard for developing robust RESTful APIs.</p>
+<h2 class="section-title">3.3 Objectives of Backend Development</h2>
+<ul>
+<li>To construct a modular, maintainable RESTful web API using Express.js.</li>
+<li>To establish a reliable, auto-reconnecting database layer with MongoDB and Mongoose.</li>
+<li>To implement complete CRUD operations for Events, Students, Registrations, and Dashboard summaries.</li>
+<li>To strictly enforce business rules: unique roll numbers/emails, maximum capacity limits, and duplicate enrollment blocks.</li>
+<li>To handle database outages gracefully with immediate <code>503 Service Unavailable</code> status responses.</li>
+<li>To provide centralized error handling middleware and automated parameter validation.</li>
+</ul>
+<h2 class="section-title">3.4 Backend Project Structure</h2>
+<pre class="code-block"><code class="lang-text">backend/
+├── config/
+│   └── db.js                    # MongoDB connection configuration with Mongoose
+├── controllers/
+│   ├── dashboardController.js   # Analytics aggregation &amp; summary counts
+│   ├── eventController.js       # Event CRUD operations &amp; capacity calculations
+│   ├── registrationController.js# Registration CRUD, duplicate &amp; capacity checks
+│   └── studentController.js     # Student profile management &amp; enrollment history
+├── middleware/
+│   ├── errorHandler.js          # Centralized error handler middleware
+│   └── validate.js              # Mongoose ObjectId parameter validator
+├── models/
+│   ├── Event.js                 # Event schema definition
+│   ├── Registration.js          # Registration schema with composite unique index
+│   └── Student.js               # Student schema with unique rollNo &amp; email
+├── routes/
+│   ├── dashboardRoutes.js       # Dashboard router (/api/dashboard)
+│   ├── eventRoutes.js           # Event router (/api/events)
+│   ├── registrationRoutes.js    # Registration router (/api/registrations)
+│   └── studentRoutes.js         # Student router (/api/students)
+├── .env                         # Server port and MongoDB connection URI
+├── .env.example                 # Template for local and cloud environment variables
+├── package.json                 # Backend dependencies, metadata, and scripts
+└── server.js                    # Application entry point, middleware, and route mounting</code></pre>
+<h2 class="section-title">3.5 Backend Technologies Used</h2>
+<table class="report-table"><thead><tr><th>Technology</th><th>Purpose</th></tr></thead><tbody><tr><td><strong>Node.js</strong></td><td>Server-side runtime environment executing JavaScript.</td></tr><tr><td><strong>Express.js (v5.3)</strong></td><td>Web application framework for routing and middleware orchestration.</td></tr><tr><td><strong>Mongoose (v9.11)</strong></td><td>Object Data Modeling (ODM) library for MongoDB data validation and relationships.</td></tr><tr><td><strong>CORS</strong></td><td>Cross-Origin Resource Sharing middleware enabling requests from the React frontend.</td></tr><tr><td><strong>dotenv</strong></td><td>Loads environment configurations from <code>.env</code> into <code>process.env</code>.</td></tr><tr><td><strong>nodemon</strong></td><td>Development utility automatically restarting the server upon code changes.</td></tr></tbody></table>
+<h2 class="section-title">3.6 Server Configuration (<code>server.js</code>)</h2>
+<p>The server initializes environment variables, applies CORS headers, parses JSON request payloads, checks database connectivity, and mounts routes:</p>
+<pre class="code-block"><code class="lang-javascript">require(&#039;dotenv&#039;).config();
+const express = require(&#039;express&#039;);
+const cors = require(&#039;cors&#039;);
+const mongoose = require(&#039;mongoose&#039;);
+
+const connectDB = require(&#039;./config/db&#039;);
+const errorHandler = require(&#039;./middleware/errorHandler&#039;);
+
+const eventRoutes = require(&#039;./routes/eventRoutes&#039;);
+const studentRoutes = require(&#039;./routes/studentRoutes&#039;);
+const registrationRoutes = require(&#039;./routes/registrationRoutes&#039;);
+const dashboardRoutes = require(&#039;./routes/dashboardRoutes&#039;);
+
+const app = express();
+
+app.use(cors({ origin: &#039;*&#039;, methods: [&#039;GET&#039;, &#039;POST&#039;, &#039;PUT&#039;, &#039;DELETE&#039;, &#039;OPTIONS&#039;] }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Health Check Endpoint
+app.get(&#039;/api/health&#039;, (req, res) =&gt; {
+  const isDbConnected = mongoose.connection.readyState === 1;
+  res.status(200).json({
+    success: true,
+    message: &#039;EventEase API is live and healthy&#039;,
+    database: isDbConnected ? &#039;connected&#039; : &#039;disconnected&#039;,
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Guard Middleware: Fast-fail with 503 if DB is offline
+const checkDBConnection = (req, res, next) =&gt; {
+  if (mongoose.connection.readyState !== 1) {
+    return res.status(503).json({
+      success: false,
+      message: &#039;Database is currently disconnected. Please verify MongoDB is running.&#039;
+    });
+  }
+  next();
+};
+
+app.use(&#039;/api/events&#039;, checkDBConnection, eventRoutes);
+app.use(&#039;/api/students&#039;, checkDBConnection, studentRoutes);
+app.use(&#039;/api/registrations&#039;, checkDBConnection, registrationRoutes);
+app.use(&#039;/api/dashboard&#039;, checkDBConnection, dashboardRoutes);
+
+app.use(errorHandler);</code></pre>
+<h2 class="section-title">3.7 REST API Endpoints Specification</h2>
+<table class="report-table"><thead><tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Status Code</th></tr></thead><tbody><tr><td><code>GET</code></td><td><code>/api/health</code></td><td>System health and database connectivity check</td><td><code>200</code></td></tr><tr><td><code>GET</code></td><td><code>/api/dashboard/stats</code></td><td>Key metrics, category counts, upcoming events</td><td><code>200</code></td></tr><tr><td><code>GET</code></td><td><code>/api/events</code></td><td>List events (supports <code>search</code>, <code>category</code>, <code>sortBy</code>)</td><td><code>200</code></td></tr><tr><td><code>POST</code></td><td><code>/api/events</code></td><td>Create a new campus event</td><td><code>201</code></td></tr><tr><td><code>GET</code></td><td><code>/api/events/:id</code></td><td>Get event by ID with active registration counts</td><td><code>200</code> / <code>404</code></td></tr><tr><td><code>PUT</code></td><td><code>/api/events/:id</code></td><td>Update event information and seat capacity</td><td><code>200</code> / <code>400</code> / <code>404</code></td></tr><tr><td><code>DELETE</code></td><td><code>/api/events/:id</code></td><td>Delete event and cascade delete linked registrations</td><td><code>200</code> / <code>404</code></td></tr><tr><td><code>GET</code></td><td><code>/api/students</code></td><td>Get all students (supports <code>search</code>, <code>branch</code>, <code>year</code>)</td><td><code>200</code></td></tr><tr><td><code>POST</code></td><td><code>/api/students</code></td><td>Register student (validates unique roll number & email)</td><td><code>201</code> / <code>409</code></td></tr><tr><td><code>GET</code></td><td><code>/api/students/:id</code></td><td>Retrieve student details and registration history</td><td><code>200</code> / <code>404</code></td></tr><tr><td><code>PUT</code></td><td><code>/api/students/:id</code></td><td>Update student profile details</td><td><code>200</code> / <code>409</code> / <code>404</code></td></tr><tr><td><code>DELETE</code></td><td><code>/api/students/:id</code></td><td>Delete student and clean up their registrations</td><td><code>200</code> / <code>404</code></td></tr><tr><td><code>GET</code></td><td><code>/api/registrations</code></td><td>List all registrations (supports <code>eventId</code>, <code>status</code>)</td><td><code>200</code></td></tr><tr><td><code>POST</code></td><td><code>/api/registrations</code></td><td>Register student (enforces capacity and uniqueness)</td><td><code>201</code> / <code>400</code></td></tr><tr><td><code>GET</code></td><td><code>/api/registrations/event/:eventId</code></td><td>Get participants list for a specific event</td><td><code>200</code> / <code>404</code></td></tr><tr><td><code>PUT</code></td><td><code>/api/registrations/:id</code></td><td>Update status (<code>Registered</code> or <code>Cancelled</code>)</td><td><code>200</code> / <code>400</code> / <code>404</code></td></tr><tr><td><code>DELETE</code></td><td><code>/api/registrations/:id</code></td><td>Delete registration record and release seat</td><td><code>200</code> / <code>404</code></td></tr></tbody></table>
+<h2 class="section-title">3.8 Key Controller & Middleware Implementation</h2>
+<h3 class="subsection-title">3.8.1 Event Registration Controller (<code>controllers/registrationController.js</code>)</h3>
+<p>The registration controller enforces college business rules: validating event and student existence, rejecting duplicate registrations, verifying seat capacity, and populating student credentials:</p>
+<pre class="code-block"><code class="lang-javascript">const createRegistration = async (req, res, next) =&gt; {
+  try {
+    const { eventId, studentId, status } = req.body;
+
+    // 1. Verify Event and Student existence
+    const event = await Event.findById(eventId);
+    if (!event) return res.status(404).json({ success: false, message: &#039;Event not found&#039; });
+
+    const student = await Student.findById(studentId);
+    if (!student) return res.status(404).json({ success: false, message: &#039;Student not found&#039; });
+
+    // 2. Prevent duplicate active registrations
+    const existingRegistration = await Registration.findOne({ eventId, studentId });
+    if (existingRegistration &amp;&amp; existingRegistration.status === &#039;Registered&#039;) {
+      return res.status(400).json({
+        success: false,
+        message: `Student &#039;${student.name}&#039; (${student.rollNo}) is already registered for &#039;${event.title}&#039;.`
+      });
+    }
+
+    // 3. Enforce Event Capacity limit
+    const activeRegistrations = await Registration.countDocuments({ eventId, status: &#039;Registered&#039; });
+    if (activeRegistrations &gt;= event.capacity) {
+      return res.status(400).json({
+        success: false,
+        message: `Event &#039;${event.title}&#039; has reached maximum capacity of ${event.capacity} seats.`
+      });
+    }
+
+    // 4. Create new registration document
+    const registration = await Registration.create({
+      eventId,
+      studentId,
+      status: status || &#039;Registered&#039;,
+      registrationDate: new Date()
+    });
+
+    const populatedRegistration = await Registration.findById(registration._id)
+      .populate(&#039;eventId&#039;, &#039;title category venue eventDate capacity&#039;)
+      .populate(&#039;studentId&#039;, &#039;name rollNo branch year email phone&#039;);
+
+    res.status(201).json({
+      success: true,
+      message: `Student registered successfully for ${event.title}`,
+      data: populatedRegistration
+    });
+  } catch (error) {
+    next(error);
+  }
+};</code></pre>
+<h3 class="subsection-title">3.8.2 Centralized Error Handling Middleware (<code>middleware/errorHandler.js</code>)</h3>
+<p>The error handler intercepts runtime exceptions across all endpoints and converts them into structured HTTP JSON responses:</p>
+<pre class="code-block"><code class="lang-javascript">const errorHandler = (err, req, res, next) =&gt; {
+  let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+  let message = err.message || &#039;Internal Server Error&#039;;
+
+  // Handle Mongoose Bad ObjectId (CastError)
+  if (err.name === &#039;CastError&#039;) {
+    statusCode = 400;
+    message = `Invalid ID format for ${err.path}: ${err.value}`;
+  }
+
+  // Handle Mongoose Schema Validation Errors
+  if (err.name === &#039;ValidationError&#039;) {
+    statusCode = 400;
+    message = Object.values(err.errors).map((e) =&gt; e.message).join(&#039;, &#039;);
+  }
+
+  // Handle MongoDB Unique Index Conflict (E11000)
+  if (err.code === 11000) {
+    statusCode = 409;
+    const duplicateFields = Object.keys(err.keyValue || {}).join(&#039;, &#039;);
+    message = `A record with this ${duplicateFields} already exists. Please use unique details.`;
+  }
+
+  // Handle MongoDB Connection / ServerSelectionError
+  if (err.name === &#039;MongooseServerSelectionError&#039; || (err.message &amp;&amp; err.message.includes(&#039;buffering timed out&#039;))) {
+    statusCode = 503;
+    message = &#039;Database is currently unreachable. Please verify MongoDB service is active.&#039;;
+  }
+
+  res.status(statusCode).json({
+    success: false,
+    message,
+    stack: process.env.NODE_ENV === &#039;production&#039; ? null : err.stack
+  });
+};
+
+module.exports = errorHandler;</code></pre>
+<hr class="report-divider" />
+<h1 class="chapter-title">Chapter 4: MongoDB Integration and CRUD Operations</h1>
+<h2 class="section-title">4.1 Introduction to MongoDB</h2>
+<p>MongoDB is a leading NoSQL document-oriented database known for its high scalability, flexible BSON (Binary JSON) schema design, and powerful querying capabilities. Unlike relational databases requiring rigid schema tables and foreign key joins, MongoDB models data naturally as self-contained documents within collections.</p>
+<h2 class="section-title">4.2 Database Collections Structure</h2>
+<p>EventEase uses three MongoDB collections:</p>
+<table class="report-table"><thead><tr><th>Collection Name</th><th>Model File</th><th>Purpose</th></tr></thead><tbody><tr><td><strong><code>events</code></strong></td><td><code>models/Event.js</code></td><td>Stores college event details, schedules, venues, and capacity limits.</td></tr><tr><td><strong><code>students</code></strong></td><td><code>models/Student.js</code></td><td>Stores student profiles, academic years, unique roll numbers, and contact information.</td></tr><tr><td><strong><code>registrations</code></strong></td><td><code>models/Registration.js</code></td><td>Stores registration records linking students to events with enrollment dates and statuses.</td></tr></tbody></table>
+<h2 class="section-title">4.3 Mongoose Schemas & Duplicate Prevention Index</h2>
+<pre class="code-block"><code class="lang-javascript">// Event Schema
+const eventSchema = new mongoose.Schema({
+  title: { type: String, required: true, trim: true },
+  description: { type: String, required: true },
+  category: { type: String, required: true, enum: [&#039;Technical&#039;, &#039;Cultural&#039;, &#039;Sports&#039;, &#039;Workshop&#039;, &#039;Seminar&#039;, &#039;Academic&#039;, &#039;Other&#039;], default: &#039;Technical&#039; },
+  venue: { type: String, required: true },
+  eventDate: { type: Date, required: true },
+  startTime: { type: String, required: true },
+  endTime: { type: String, required: true },
+  capacity: { type: Number, required: true, min: 1 },
+  organizer: { type: String, required: true }
+}, { timestamps: true });
+
+// Student Schema with Unique Roll No &amp; Email
+const studentSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  rollNo: { type: String, required: true, unique: true, uppercase: true },
+  branch: { type: String, required: true },
+  year: { type: String, required: true, enum: [&#039;1st Year&#039;, &#039;2nd Year&#039;, &#039;3rd Year&#039;, &#039;4th Year&#039;] },
+  email: { type: String, required: true, unique: true, lowercase: true },
+  phone: { type: String, required: true }
+}, { timestamps: true });
+
+// Registration Schema with Compound Unique Constraint
+const registrationSchema = new mongoose.Schema({
+  eventId: { type: mongoose.Schema.Types.ObjectId, ref: &#039;Event&#039;, required: true },
+  studentId: { type: mongoose.Schema.Types.ObjectId, ref: &#039;Student&#039;, required: true },
+  registrationDate: { type: Date, default: Date.now },
+  status: { type: String, enum: [&#039;Registered&#039;, &#039;Cancelled&#039;], default: &#039;Registered&#039; }
+}, { timestamps: true });
+
+// Ensures a student can register only once per event
+registrationSchema.index({ eventId: 1, studentId: 1 }, { unique: true });</code></pre>
+<h2 class="section-title">4.4 MongoDB Connection & Graceful Reconnection (<code>config/db.js</code>)</h2>
+<p>The database connection module initializes Mongoose with connection pooling and an aggressive <code>serverSelectionTimeoutMS: 5000</code> to prevent application hangs during database cold starts:</p>
+<pre class="code-block"><code class="lang-javascript">const mongoose = require(&#039;mongoose&#039;);
+
+const connectDB = async () =&gt; {
+  try {
+    const mongoURI = process.env.MONGODB_URI || &#039;mongodb://127.0.0.1:27017/eventease&#039;;
+    
+    const conn = await mongoose.connect(mongoURI, {
+      serverSelectionTimeoutMS: 5000
+    });
+
+    console.log(`[EventEase Database] MongoDB Connected: ${conn.connection.host}/${conn.connection.name}`);
+  } catch (error) {
+    console.error(`[EventEase Database Error] Failed to connect: ${error.message}`);
+    console.warn(`[EventEase Database Tip] Make sure MongoDB is running or configure MONGODB_URI in backend/.env.`);
+  }
+};
+
+module.exports = connectDB;</code></pre>
+<h2 class="section-title">4.5 MongoDB Aggregation and Cascading Cleanup Logic</h2>
+<h3 class="subsection-title">4.5.1 Category Distribution Aggregation (<code>controllers/dashboardController.js</code>)</h3>
+<p>MongoDB's native aggregation pipeline groups events by department category to render category distribution tags on the dashboard:</p>
+<pre class="code-block"><code class="lang-javascript">const categoryStats = await Event.aggregate([
+  {
+    $group: {
+      _id: &#039;$category&#039;,
+      count: { $sum: 1 }
+    }
+  },
+  { $sort: { count: -1 } }
+]);</code></pre>
+<h3 class="subsection-title">4.5.2 Cascading Delete of Linked Registrations (<code>controllers/eventController.js</code>)</h3>
+<p>When an event is deleted, EventEase executes a cascading cleanup to ensure orphaned registration records do not persist in the database:</p>
+<pre class="code-block"><code class="lang-javascript">const deleteEvent = async (req, res, next) =&gt; {
+  try {
+    const event = await Event.findById(req.params.id);
+    if (!event) return res.status(404).json({ success: false, message: &#039;Event not found&#039; });
+
+    // Cascade delete all associated registrations
+    await Registration.deleteMany({ eventId: event._id });
+    await event.deleteOne();
+
+    res.status(200).json({
+      success: true,
+      message: `Event &#039;${event.title}&#039; and associated registrations deleted successfully`
+    });
+  } catch (error) {
+    next(error);
+  }
+};</code></pre>
+<hr class="report-divider" />
+<h1 class="chapter-title">Chapter 5: Git and GitHub Implementation</h1>
+<h2 class="section-title">5.1 Introduction to Git and GitHub</h2>
+<p><strong>Git</strong> is a distributed version control system designed to record changes to project files over time, enabling seamless branching, rollback, and team collaboration. <strong>GitHub</strong> is a cloud-based repository hosting platform providing backup, code review, issue tracking, and automated deployment integrations.</p>
+<h2 class="section-title">5.2 Version Control Workflow</h2>
+<ol>
+<li><strong>Working Directory:</strong> Files are created and edited in local workspace.</li>
+<li><strong>Staging Area (<code>git add</code>):</strong> Modified files are staged, excluding build artifacts and sensitive keys via <code>.gitignore</code>.</li>
+<li><strong>Local Commit (<code>git commit</code>):</strong> Staged changes are packaged with descriptive commit messages.</li>
+<li><strong>Remote Push (<code>git push</code>):</strong> Changes are uploaded to the GitHub repository.</li>
+</ol>
+<h2 class="section-title">5.3 Essential Git Commands</h2>
+<pre class="code-block"><code class="lang-powershell"># 1. Initialize local repository
+git init
+
+# 2. Check status
+git status
+
+# 3. Stage source files
+git add .
+
+# 4. Commit changes
+git commit -m &quot;EventEase College Event Management System implementation&quot;
+
+# 5. Push to GitHub
+git branch -M main
+git remote add origin https://github.com/akki07-hub/eventease.git
+git push -u origin main</code></pre>
+<hr class="report-divider" />
+<h1 class="chapter-title">Chapter 6: Cloud Deployment</h1>
+<h2 class="section-title">6.1 Cloud Architecture</h2>
+<p>EventEase follows a decoupled cloud deployment architecture:</p>
+<pre class="code-block"><code class="lang-text"> ┌───────────────────────┐            REST API Calls            ┌───────────────────────┐
+ │     Frontend UI       │  ──────────────────────────────────&gt; │    Backend Service    │
+ │ (Vercel/GitHub Pages) │  &lt;────────────────────────────────── │     (Render.com)      │
+ └───────────────────────┘            JSON Responses            └───────────┬───────────┘
+                                                                            │
+                                                                   Mongoose Connection
+                                                                            │
+                                                                            ▼
+                                                                ┌───────────────────────┐
+                                                                │     MongoDB Atlas     │
+                                                                │  (Cloud M0 Cluster)   │
+                                                                └───────────────────────┘</code></pre>
+<h2 class="section-title">6.2 Deployment Configuration</h2>
+<ol>
+<li><strong>Database:</strong> MongoDB Atlas M0 Cluster with connection string:</li>
+</ol>
+<p><code>mongodb+srv://&lt;username&gt;:&lt;password&gt;@cluster0.mongodb.net/eventease?retryWrites=true&amp;w=majority</code></p>
+<ol>
+<li><strong>Backend:</strong> Deployed on Render with Build Command <code>npm install</code> and Start Command <code>node server.js</code>.</li>
+<li><strong>Frontend:</strong> Deployed on Vercel with Environment Variable <code>VITE_API_URL=https://[backend-url].onrender.com/api</code>.</li>
+</ol>
+<hr class="report-divider" />
+<h1 class="chapter-title">Chapter 7: Application Testing</h1>
+<h2 class="section-title">7.1 Introduction</h2>
+<p>Application testing is an essential phase of software development that validates whether the system behaves according to design specifications. In <strong>EventEase</strong>, comprehensive testing was performed across the React frontend, Express.js backend, and MongoDB database to verify event creation, capacity allocation, duplicate registration prevention, and participant management.</p>
+<h2 class="section-title">7.2 Objectives of Testing</h2>
+<ul>
+<li>To confirm that the application dashboard accurately displays live metrics from the database.</li>
+<li>To verify that new campus events can be created, searched, and filtered.</li>
+<li>To validate that duplicate student registrations (by existing email or roll number) are caught and rejected with clear error messages.</li>
+<li>To verify that student enrollments are recorded accurately and seats are reserved.</li>
+<li>To verify that participant deletion modals safeguard against accidental data loss.</li>
+</ul>
+<h2 class="section-title">7.3 Test Cases</h2>
+<p>The following five primary test scenarios were executed to evaluate the EventEase application:</p>
+<table class="report-table"><thead><tr><th>Test Case ID</th><th>Test Scenario</th><th>Expected Result</th><th>Actual Result</th><th>Status</th></tr></thead><tbody><tr><td><strong>TC01</strong></td><td><strong>Dashboard Loading & Metrics Overview</strong></td><td>Dashboard loads with live counts (Total Events, Upcoming Events, Registered Students, Active Registrations), upcoming events timeline, and recent registrations table.</td><td>Dashboard loaded with 1 event, 1 registered student, and accurate summary cards.</td><td><strong>[Pass]</strong></td></tr><tr><td><strong>TC02</strong></td><td><strong>Event Catalogue & Filtering</strong></td><td>Events list displays scheduled events with category badges, seats remaining progress bar, search input, and action buttons.</td><td>Event card displayed "hackathon" with "Technical" badge and "50 spots left".</td><td><strong>[Pass]</strong></td></tr><tr><td><strong>TC03</strong></td><td><strong>Input Validation & Duplicate Prevention</strong></td><td>System detects existing student credentials (email/roll number) and halts submission with an informative error alert banner.</td><td>Displayed red alert: <em>"A student with email 'shaikshehnaz77867786@gmail.com' already exists."</em></td><td><strong>[Pass]</strong></td></tr><tr><td><strong>TC04</strong></td><td><strong>Student Registration Confirmation</strong></td><td>System registers student, decrements available seats by 1, and displays a green confirmation card with student and event details.</td><td>Displayed green card: <em>"Registration Confirmed! Student registered successfully for hackathon"</em>.</td><td><strong>[Pass]</strong></td></tr><tr><td><strong>TC05</strong></td><td><strong>Participant Roster & Registration Deletion</strong></td><td>Organizers can inspect registered participants and open an interactive confirmation modal before deleting a registration record.</td><td>Delete modal prompt rendered: <em>"Are you sure you want to remove the registration of akku (1234T)?"</em></td><td><strong>[Pass]</strong></td></tr></tbody></table>
+<hr class="report-divider" />
+<h2 class="section-title">7.4 Testing Results with System Proofs</h2>
+<h3 class="subsection-title">Test Case 1: Dashboard Loading & Metrics Overview</h3>
+<p>The dashboard communicates with <code>GET /api/dashboard/stats</code> upon mounting. It calculates total scheduled events, upcoming events from the current date, distinct registered students, and total active registrations.</p>
+<pre class="code-block"><code class="lang-text">Result: [PASS]</code></pre>
+<p><div class="image-wrapper"><img src="file:///C:/Users/user/Desktop/EventEase/docs/screenshots/dashboard.png" alt="Test 1 - Dashboard Overview" /><div class="image-caption">Test 1 - Dashboard Overview</div></div></p>
+<hr class="report-divider" />
+<h3 class="subsection-title">Test Case 2: Event Catalogue & Listing</h3>
+<p>The event list retrieves records via <code>GET /api/events</code>. It renders events in structured cards with category pill tags, date/time metadata, venue information, and real-time seat availability progress (<code>0 / 50</code>).</p>
+<pre class="code-block"><code class="lang-text">Result: [PASS]</code></pre>
+<p><div class="image-wrapper"><img src="file:///C:/Users/user/Desktop/EventEase/docs/screenshots/events_list.png" alt="Test 2 - Events Catalogue" /><div class="image-caption">Test 2 - Events Catalogue</div></div></p>
+<hr class="report-divider" />
+<h3 class="subsection-title">Test Case 3: Input Validation & Duplicate Student Prevention</h3>
+<p>When registering a new student, the backend checks for existing entries using <code>Student.findOne({ email })</code> and <code>Student.findOne({ rollNo })</code>. If a duplicate is detected, an HTTP <code>409 Conflict</code> response is returned and rendered as a prominent alert banner, preventing redundant database records.</p>
+<pre class="code-block"><code class="lang-text">Result: [PASS]</code></pre>
+<p><div class="image-wrapper"><img src="file:///C:/Users/user/Desktop/EventEase/docs/screenshots/duplicate_validation.png" alt="Test 3 - Duplicate Student Email Validation Error" /><div class="image-caption">Test 3 - Duplicate Student Email Validation Error</div></div></p>
+<hr class="report-divider" />
+<h3 class="subsection-title">Test Case 4: Student Registration Confirmation</h3>
+<p>Upon submitting valid student details for an available event, the backend executes <code>POST /api/registrations</code>. A new document is saved in the <code>registrations</code> collection, the event's available spots decrease (e.g., from 50 to 49 seats), and the user receives a confirmation card with direct navigation links.</p>
+<pre class="code-block"><code class="lang-text">Result: [PASS]</code></pre>
+<p><div class="image-wrapper"><img src="file:///C:/Users/user/Desktop/EventEase/docs/screenshots/registration_confirmed.png" alt="Test 4 - Registration Confirmed" /><div class="image-caption">Test 4 - Registration Confirmed</div></div></p>
+<hr class="report-divider" />
+<h3 class="subsection-title">Test Case 5: Participant Roster & Registration Deletion</h3>
+<p>Organizers can navigate to <code>/participants</code> to view the roster for any selected event. Clicking the delete icon opens an accessible confirmation modal (<code>Modal.jsx</code>) specifying the student's name and roll number, warning that deleting the registration releases their seat.</p>
+<pre class="code-block"><code class="lang-text">Result: [PASS]</code></pre>
+<p><div class="image-wrapper"><img src="file:///C:/Users/user/Desktop/EventEase/docs/screenshots/delete_confirmation.png" alt="Test 5 - Delete Registration Confirmation Modal" /><div class="image-caption">Test 5 - Delete Registration Confirmation Modal</div></div></p>
+<hr class="report-divider" />
+<h2 class="section-title">7.5 Error Handling and Edge Cases</h2>
+<ul>
+<li><strong>Database Disconnection Handling:</strong> When MongoDB is unreachable, the backend returns an immediate HTTP <code>503 Service Unavailable</code>, preventing request hanging.</li>
+<li><strong>Capacity Limits:</strong> When an event reaches maximum capacity (<code>registeredCount &gt;= capacity</code>), the registration button is disabled, and an alert is displayed.</li>
+<li><strong>Malformed ObjectIds:</strong> Tested invalid MongoDB ObjectIds on endpoints like <code>/api/events/invalid-id</code>, returning HTTP <code>400 Bad Request</code> via the <code>validateObjectId</code> middleware.</li>
+</ul>
+<h2 class="section-title">7.6 Postman Automated API Collection (<code>EventEase.postman_collection.json</code>)</h2>
+<p>The REST API was validated using Postman collection tests across all endpoints. Below is a representative snippet from the collection showing request configuration and automated JSON payloads:</p>
+<pre class="code-block"><code class="lang-json">{
+  &quot;name&quot;: &quot;Create Event&quot;,
+  &quot;request&quot;: {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;header&quot;: [
+      {
+        &quot;key&quot;: &quot;Content-Type&quot;,
+        &quot;value&quot;: &quot;application/json&quot;
+      }
+    ],
+    &quot;body&quot;: {
+      &quot;mode&quot;: &quot;raw&quot;,
+      &quot;raw&quot;: &quot;{\n  \&quot;title\&quot;: \&quot;Hackathon 2026\&quot;,\n  \&quot;description\&quot;: \&quot;Annual 24-hour campus coding challenge.\&quot;,\n  \&quot;category\&quot;: \&quot;Technical\&quot;,\n  \&quot;venue\&quot;: \&quot;Block C Seminar Hall\&quot;,\n  \&quot;eventDate\&quot;: \&quot;2026-11-06\&quot;,\n  \&quot;startTime\&quot;: \&quot;10:00 AM\&quot;,\n  \&quot;endTime\&quot;: \&quot;01:00 PM\&quot;,\n  \&quot;capacity\&quot;: 50,\n  \&quot;organizer\&quot;: \&quot;Department of CSE\&quot;\n}&quot;
+    },
+    &quot;url&quot;: {
+      &quot;raw&quot;: &quot;{{baseUrl}}/api/events&quot;,
+      &quot;host&quot;: [&quot;{{baseUrl}}&quot;],
+      &quot;path&quot;: [&quot;api&quot;, &quot;events&quot;]
+    }
+  }
+}</code></pre>
+<pre class="code-block"><code class="lang-json">{
+  &quot;name&quot;: &quot;Register Student for Event&quot;,
+  &quot;request&quot;: {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;header&quot;: [
+      {
+        &quot;key&quot;: &quot;Content-Type&quot;,
+        &quot;value&quot;: &quot;application/json&quot;
+      }
+    ],
+    &quot;body&quot;: {
+      &quot;mode&quot;: &quot;raw&quot;,
+      &quot;raw&quot;: &quot;{\n  \&quot;eventId\&quot;: \&quot;{{eventId}}\&quot;,\n  \&quot;studentId\&quot;: \&quot;{{studentId}}\&quot;,\n  \&quot;status\&quot;: \&quot;Registered\&quot;\n}&quot;
+    },
+    &quot;url&quot;: {
+      &quot;raw&quot;: &quot;{{baseUrl}}/api/registrations&quot;,
+      &quot;host&quot;: [&quot;{{baseUrl}}&quot;],
+      &quot;path&quot;: [&quot;api&quot;, &quot;registrations&quot;]
+    }
+  }
+}</code></pre>
+<hr class="report-divider" />
+<h1 class="chapter-title">Chapter 8: Conclusion</h1>
+<h2 class="section-title">8.1 Conclusion</h2>
+<p>The <strong>EventEase — College Event Management System</strong> successfully addresses the operational bottlenecks of traditional campus event coordination. By implementing a full-stack MERN architecture (React.js, Node.js, Express.js, and MongoDB), the application automates event publishing, student registration, duplicate prevention, and seat capacity allocation.</p>
+<p>The project demonstrates software engineering best practices including declarative frontend routing, component modularity, RESTful API design, schema validation, and centralized exception handling.</p>
+<h2 class="section-title">8.2 Learning Outcomes</h2>
+<ul>
+<li>Developed a comprehensive Single Page Application using <strong>React.js (v18)</strong> and <strong>React Router v6</strong>.</li>
+<li>Implemented robust, modular backend services with <strong>Node.js</strong> and <strong>Express.js</strong>.</li>
+<li>Designed and indexed NoSQL database collections using <strong>MongoDB</strong> and <strong>Mongoose ODM</strong>.</li>
+<li>Enforced complex data integrity rules including compound unique indexes and seat capacity limits.</li>
+<li>Configured automated API collections and verified endpoints using <strong>Postman</strong>.</li>
+<li>Applied responsive design principles ensuring cross-device compatibility from smartphones to desktop screens.</li>
+</ul>
+<h2 class="section-title">8.3 Future Enhancements</h2>
+<ul>
+<li><strong>QR Code Attendance Scanner:</strong> Generate dynamic QR codes on student registration passes for instant venue check-in via mobile camera.</li>
+<li><strong>Automated Email Notifications:</strong> Integrate Nodemailer or SendGrid to send confirmation emails with calendar invitations (<code>.ics</code> files).</li>
+<li><strong>Role-Based Authentication (RBAC):</strong> Provide distinct login roles for Student Attendees, Faculty Coordinators, and Chief Event Administrators with JWT authentication.</li>
+<li><strong>Certificate Generation:</strong> Automatically issue verifiable participation PDF certificates to attendees marked as present.</li>
+<li><strong>Feedback & Rating Module:</strong> Enable students to submit post-event ratings and reviews to evaluate event success.</li>
+</ul>
+</body>
+</html>
