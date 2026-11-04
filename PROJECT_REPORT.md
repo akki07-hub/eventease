@@ -1,3 +1,7 @@
+<div align="center">
+
+<img src="docs/screenshots/gitam_logo.png" alt="GITAM Deemed to be University" width="160" />
+
 # GITAM SCHOOL OF COMPUTER SCIENCE AND ENGINEERING
 ### Visakhapatnam
 
@@ -12,7 +16,9 @@
 
 **Department of Computer Science and Engineering**  
 **Branch:** Computer Science and Engineering (CSE)  
-**Academic Year:** [2025–2026]
+**Academic Year:** 2025–2026
+
+</div>
 
 ---
 
