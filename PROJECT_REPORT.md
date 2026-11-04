@@ -766,7 +766,7 @@ git commit -m "EventEase College Event Management System implementation"
 
 # 5. Push to GitHub
 git branch -M main
-git remote add origin https://github.com/shaikmahammedaakhil/EventEase.git
+git remote add origin https://github.com/akki07-hub/eventease.git
 git push -u origin main
 ```
 
